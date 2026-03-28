@@ -92,3 +92,23 @@ That step turns "sandbox-first" into a real boundary instead of a public duplica
 - **Pass 1 — Semantic renames:** TieDyeTile→PortfolioTile, ProfilePage→HomePage, ProductTemplate→ProjectDetailPage, DynamicProjectPage→ProjectRoute, archiveItems→performanceItems, DEFAULT_CONTENT→DEFAULT_SITE_DATA, INITIAL_PROJECTS→STATIC_PROJECTS, projectList→portfolioItems, remove bioText, inspect useSiteContent.ts/.tsx pair
 - **Pass 2 — Bundle/performance:** lazy-load SoloCardOrderPage, BusinessCardGenerator, BusinessCardGeneratorV2, BrandAssetKit, AdminPage
 - **Pass 3 — Product boundary extraction:** move platform tools to solokit.app consumer repo
+
+
+---
+
+## Credential additions (March 28, 2026)
+
+### CRON_SECRET added to Kohler Outreach
+
+| System | Credential | Owner | Scope | Location | Created | Validated | Notes |
+|---|---|---|---|---|---|---|---|
+| Kohler Outreach | CRON_SECRET | Lisa | Vercel cron route auth | Vercel encrypted env var (kohler-outreach + kohler-outreach-sandbox) | 2026-03-28 | curl 403 verified | Generated via secrets.token_urlsafe(32). Cannot be retrieved from Vercel — regenerate if lost. |
+
+**Why:** The `/api/cron/research` route was callable by anyone because `requireCronSecret()` fell through open when CRON_SECRET was not configured. Now returns 403 for any request without the correct Bearer token. Vercel's built-in cron scheduler automatically sends this token.
+
+**If you need to regenerate:**
+1. Go to Vercel → kohler-outreach → Settings → Environment Variables
+2. Delete CRON_SECRET
+3. Add new CRON_SECRET with a fresh value (use: `python3 -c "import secrets; print(secrets.token_urlsafe(32))"`)
+4. Redeploy
+5. Do the same for kohler-outreach-sandbox
