@@ -15,108 +15,91 @@
 <meta name="twitter:title" content="solokit — Your work. One link. One card." />
 <meta name="twitter:description" content="Portfolio platform with physical NFC + QR cards. Your work in their pocket." />
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "solokit",
-  "applicationCategory": "BusinessApplication",
-  "description": "Portfolio platform for engineers, designers, and solopreneurs. Includes physical NFC + QR solocards.",
-  "url": "https://solokit.app",
-  "operatingSystem": "Web",
-  "offers": { "@type": "Offer", "availability": "https://schema.org/PreOrder", "priceCurrency": "USD" },
-  "creator": { "@type": "Organization", "name": "Lisa Wood Studio", "url": "https://lisawoodstudio.com" }
-}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"solokit","applicationCategory":"BusinessApplication","description":"Portfolio platform for engineers, designers, and solopreneurs with physical NFC + QR solocards.","url":"https://solokit.app","operatingSystem":"Web","creator":{"@type":"Organization","name":"Lisa Wood Studio","url":"https://lisawoodstudio.com"}}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --navy:#1a2744;--navy-d:#0e1726;--navy-l:#243a5c;
-  --org:#f5922f;--org-h:#ff9f3f;--org-g:rgba(245,146,47,0.08);
-  --w:#fafbfd;--g1:#f0f2f5;--g3:#a0a7b8;--g5:#6b7186;--g7:#3d4256;
-  --r:16px;
-}
+:root{--navy:#1a2744;--navy-d:#0e1726;--org:#f5922f;--org-h:#ff9f3f;--w:#fafbfd;--g3:#a0a7b8;--g5:#6b7186}
 html{scroll-behavior:smooth}
-body{font-family:'Instrument Sans',sans-serif;background:var(--navy-d);color:var(--w);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:'Instrument Sans',sans-serif;background:#fff;color:#1a1a1a;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:1.25rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(14,23,38,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.04)}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.04)}
 .nav-mark{display:flex;align-items:center;gap:0.5rem}
 .nav-sq{width:32px;height:32px;background:var(--org);border-radius:8px;display:flex;align-items:center;justify-content:center}
 .nav-sq svg{width:18px;height:18px}
-.nav-word{font-size:0.9375rem;font-weight:600;letter-spacing:0.06em;color:var(--g3)}
-nav a.cta{padding:0.5rem 1.25rem;background:rgba(245,146,47,0.1);color:var(--org);font-size:0.8125rem;font-weight:600;border-radius:8px;text-decoration:none;border:1px solid rgba(245,146,47,0.2);transition:all 0.2s}
-nav a.cta:hover{background:var(--org);color:var(--navy-d)}
+.nav-word{font-size:0.9375rem;font-weight:600;letter-spacing:0.06em;color:var(--g5)}
+nav a.cta-nav{padding:0.5rem 1.25rem;background:var(--navy);color:#fff;font-size:0.8125rem;font-weight:600;border-radius:8px;text-decoration:none;transition:all 0.2s}
+nav a.cta-nav:hover{background:var(--org)}
 
-/* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:6rem 2rem 4rem;position:relative}
-.hero::before{content:'';position:absolute;top:-20%;left:10%;width:80%;height:80%;background:radial-gradient(ellipse at 50% 30%,rgba(245,146,47,0.04) 0%,transparent 60%);pointer-events:none}
-.hero-inner{position:relative;z-index:1;max-width:720px}
+/* DEMO BENTO — mirrors Kohler's layout */
+.bento-section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:7rem 2rem 4rem;background:#fff}
+.bento-inner{width:100%;max-width:72rem}
 
-.hero h1{font-family:'Newsreader',serif;font-size:clamp(2.75rem,7vw,5rem);font-weight:400;line-height:1.05;letter-spacing:-0.025em;margin-bottom:1.5rem;opacity:0;animation:rise 0.9s ease forwards 0.15s}
-.hero h1 em{font-style:italic;color:var(--org)}
+.bento-header{display:flex;flex-direction:column;align-items:flex-end;margin-bottom:1.5rem;opacity:0;animation:rise 0.8s ease forwards 0.1s}
+.bento-header h1{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1a1a1a}
+.bento-header p{font-size:clamp(0.6875rem,1.2vw,0.875rem);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#888;margin-top:0.25rem}
 
-.hero-p{font-size:clamp(1rem,2vw,1.1875rem);color:var(--g3);line-height:1.75;max-width:520px;margin:0 auto 2.5rem;opacity:0;animation:rise 0.9s ease forwards 0.35s}
+.bento-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;opacity:0;animation:rise 0.9s ease forwards 0.3s}
 
-.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:rise 0.9s ease forwards 0.5s}
+.bento-tile{position:relative;aspect-ratio:1/1;border-radius:1rem;overflow:hidden;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.bento-tile img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.23,1,0.32,1)}
+.bento-tile:hover img{transform:scale(1.04)}
+.bento-tile::after{content:attr(data-label);position:absolute;bottom:1rem;left:0;right:0;text-align:center;font-size:1rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.4);z-index:2}
+.bento-tile .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.35) 0%,transparent 50%);z-index:1}
 
-@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.demo-badge{display:inline-block;margin-top:2rem;padding:0.5rem 1.25rem;background:rgba(245,146,47,0.08);color:var(--org);font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border-radius:6px;border:1px solid rgba(245,146,47,0.15);opacity:0;animation:rise 0.8s ease forwards 0.6s}
 
-.btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.875rem 2rem;font-family:'Instrument Sans',sans-serif;font-size:0.9375rem;font-weight:600;border-radius:12px;text-decoration:none;cursor:pointer;border:none;transition:all 0.2s ease}
-.btn-p{background:var(--org);color:var(--navy-d);box-shadow:0 4px 24px rgba(245,146,47,0.2)}
-.btn-p:hover{background:var(--org-h);transform:translateY(-2px);box-shadow:0 8px 32px rgba(245,146,47,0.3)}
-.btn-s{background:transparent;color:var(--w);border:1px solid rgba(255,255,255,0.12)}
-.btn-s:hover{background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.2)}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
-/* HOW IT WORKS */
-.sect{padding:6rem 2rem;max-width:1000px;margin:0 auto}
+/* CONTENT SECTIONS */
+.sect{padding:5rem 2rem;max-width:960px;margin:0 auto}
+.sect-dark{background:var(--navy-d);color:var(--w)}
 .sect-lab{font-size:0.6875rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--org);margin-bottom:0.75rem}
-.sect h2{font-family:'Newsreader',serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:400;line-height:1.15;margin-bottom:3rem}
+.sect h2{font-family:'Newsreader',serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:400;line-height:1.15;margin-bottom:2.5rem}
 
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.step{background:var(--navy);border:1px solid rgba(255,255,255,0.05);border-radius:var(--r);padding:2rem 1.75rem;transition:border-color 0.3s,transform 0.3s}
-.step:hover{border-color:rgba(245,146,47,0.15);transform:translateY(-4px)}
-.step-n{font-family:'Newsreader',serif;font-size:2.5rem;color:var(--org);opacity:0.6;line-height:1;margin-bottom:0.75rem}
+.step{padding:2rem 1.5rem;border:1px solid rgba(255,255,255,0.08);border-radius:14px;transition:border-color 0.3s,transform 0.3s}
+.step:hover{border-color:rgba(245,146,47,0.2);transform:translateY(-3px)}
+.step-n{font-family:'Newsreader',serif;font-size:2.5rem;color:var(--org);opacity:0.5;line-height:1;margin-bottom:0.5rem}
 .step h3{font-size:1.0625rem;font-weight:600;margin-bottom:0.5rem}
 .step p{font-size:0.875rem;color:var(--g3);line-height:1.7}
 
-/* FEATURES */
-.feats{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
-.feat{background:var(--navy);border:1px solid rgba(255,255,255,0.05);border-radius:14px;padding:1.75rem;transition:border-color 0.3s}
-.feat:hover{border-color:rgba(245,146,47,0.12)}
-.feat-ico{width:40px;height:40px;background:var(--org-g);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;font-size:1.125rem;color:var(--org)}
-.feat h3{font-size:1rem;font-weight:600;margin-bottom:0.375rem}
-.feat p{font-size:0.8125rem;color:var(--g3);line-height:1.7}
-
 /* LIVE EXAMPLE */
-.example{text-align:center;padding:5rem 2rem;border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04)}
-.example .sect-lab{margin-bottom:0.75rem}
-.example h2{font-family:'Newsreader',serif;font-size:clamp(1.5rem,3.5vw,2.25rem);font-weight:400;margin-bottom:1rem;max-width:600px;margin-left:auto;margin-right:auto}
-.example p{font-size:0.9375rem;color:var(--g3);margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
-.example .btn{margin:0 auto}
+.live-example{text-align:center;padding:5rem 2rem;border-top:1px solid #eee}
+.live-example h2{font-family:'Newsreader',serif;font-size:clamp(1.5rem,3.5vw,2.25rem);font-weight:400;margin-bottom:1rem}
+.live-example p{font-size:0.9375rem;color:#666;max-width:480px;margin:0 auto 2rem;line-height:1.7}
 
 /* CTA */
-.cta-sect{padding:6rem 2rem 8rem;text-align:center}
-.cta-sect h2{font-family:'Newsreader',serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:400;margin-bottom:1rem}
-.cta-sect p{font-size:1rem;color:var(--g3);max-width:440px;margin:0 auto 2.5rem;line-height:1.7}
+.cta-section{padding:5rem 2rem;text-align:center;background:var(--navy-d);color:var(--w)}
+.cta-section h2{font-family:'Newsreader',serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:400;margin-bottom:1rem}
+.cta-section p{font-size:1rem;color:var(--g3);max-width:440px;margin:0 auto 2rem;line-height:1.7}
 
-/* FOOTER */
-footer{text-align:center;padding:2rem;border-top:1px solid rgba(255,255,255,0.04);font-size:0.75rem;color:var(--g5)}
-footer a{color:var(--g3);text-decoration:none;transition:color 0.2s}
+.btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.875rem 2rem;font-family:inherit;font-size:0.9375rem;font-weight:600;border-radius:12px;text-decoration:none;cursor:pointer;border:none;transition:all 0.2s}
+.btn-p{background:var(--org);color:var(--navy-d);box-shadow:0 4px 24px rgba(245,146,47,0.2)}
+.btn-p:hover{background:var(--org-h);transform:translateY(-2px)}
+.btn-s{background:transparent;color:var(--w);border:1px solid rgba(255,255,255,0.15)}
+.btn-s:hover{background:rgba(255,255,255,0.04)}
+.btn-outline{background:transparent;color:#1a1a1a;border:1px solid rgba(0,0,0,0.12)}
+.btn-outline:hover{border-color:var(--org);color:var(--org)}
+
+.wl-form{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;max-width:460px;margin:0 auto}
+.wl-input{flex:1;min-width:200px;padding:0.875rem 1.25rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;color:#fff;font-family:inherit;font-size:0.9375rem;outline:none;transition:border-color 0.2s}
+.wl-input:focus{border-color:rgba(245,146,47,0.4)}
+.wl-input::placeholder{color:rgba(255,255,255,0.3)}
+#form-msg{margin-top:1rem;font-size:0.8125rem;color:var(--org);display:none}
+
+footer{text-align:center;padding:2rem;border-top:1px solid rgba(0,0,0,0.04);font-size:0.75rem;color:#999}
+footer a{color:#666;text-decoration:none}
 footer a:hover{color:var(--org)}
 
-/* RESPONSIVE */
 @media(max-width:768px){
   .steps{grid-template-columns:1fr}
-  .feats{grid-template-columns:1fr}
-  nav{padding:1rem 1.25rem}
-  .sect{padding:4rem 1.5rem}
-}
-@media(max-width:480px){
-  .hero-btns{flex-direction:column;align-items:center}
-  .btn{width:100%;justify-content:center;max-width:280px}
+  .bento-grid{grid-template-columns:1fr}
+  .bento-header{align-items:center;text-align:center}
+  nav{padding:0.75rem 1.25rem}
 }
 </style>
 </head>
@@ -124,93 +107,82 @@ footer a:hover{color:var(--org)}
 
 <nav>
   <div class="nav-mark">
-    <div class="nav-sq">
-      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
-        <rect x="3" y="3" width="18" height="18" rx="4"/>
-        <path d="M8 12h8M12 8v8"/>
-      </svg>
-    </div>
+    <div class="nav-sq"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12h8M12 8v8"/></svg></div>
     <span class="nav-word">solokit</span>
   </div>
-  <a href="#join" class="cta">Join the Waitlist</a>
+  <a href="#join" class="cta-nav">Join the Waitlist</a>
 </nav>
 
-<section class="hero">
-  <div class="hero-inner">
-    <h1>Your work.<br>One link.<br>One <em>card.</em></h1>
-    <p class="hero-p">solokit is a portfolio platform for engineers, designers, and solopreneurs. Build your digital portfolio and order physical solocards — NFC + QR cards that put your professional story in people's pockets.</p>
-    <div class="hero-btns">
-      <a href="#join" class="btn btn-p">Join the Waitlist →</a>
-      <a href="#how" class="btn btn-s">How It Works</a>
+<!-- HERO: Demo Bento Grid (mirrors Kohler's layout) -->
+<section class="bento-section">
+  <div class="bento-inner">
+    <div class="bento-header">
+      <h1>Your Name</h1>
+      <p>Dog Walking &amp; Custom Knits</p>
+    </div>
+    <div class="bento-grid">
+      <div class="bento-tile" data-label="About">
+        <div class="overlay"></div>
+        <img src="demo/walker.webp" alt="Portrait" loading="eager">
+      </div>
+      <div class="bento-tile" data-label="Services">
+        <div class="overlay"></div>
+        <img src="demo/dog-walking.jpeg" alt="Dog walking illustration" loading="eager">
+      </div>
+      <div class="bento-tile" data-label="Shop">
+        <div class="overlay"></div>
+        <img src="demo/sweater.png" alt="Custom knit sweater" loading="eager">
+      </div>
+    </div>
+    <div style="text-align:center">
+      <span class="demo-badge">This is a demo solokit — yours will look like this</span>
     </div>
   </div>
 </section>
 
-<section class="sect" id="how">
-  <div class="sect-lab">How It Works</div>
-  <h2>Three steps from signup to someone holding your card</h2>
-  <div class="steps">
-    <div class="step">
-      <div class="step-n">1</div>
-      <h3>Build your solokit</h3>
-      <p>Add your projects, resume, skills, and contact info. Your portfolio lives at yourname.solokit.app — mobile-first, fast, and agent-ready.</p>
-    </div>
-    <div class="step">
-      <div class="step-n">2</div>
-      <h3>Order your solocards</h3>
-      <p>Physical rounded-square cards with your photo on front and a QR code on back. NFC chip embedded. Thick stock, premium feel. Made to be kept.</p>
-    </div>
-    <div class="step">
-      <div class="step-n">3</div>
-      <h3>Hand them out</h3>
-      <p>Someone taps or scans your solocard — your full portfolio opens instantly. No app needed. Works on every device. Update your portfolio anytime; every card you've handed out stays current.</p>
-    </div>
-  </div>
-</section>
-
-<section class="sect">
-  <div class="sect-lab">What You Get</div>
-  <h2>A complete professional presence</h2>
-  <div class="feats">
-    <div class="feat">
-      <div class="feat-ico">◼</div>
-      <h3>Digital portfolio</h3>
-      <p>Your own subdomain. Projects, resume, skills, performances, contact info — all in one responsive page with full SEO and structured data baked in.</p>
-    </div>
-    <div class="feat">
-      <div class="feat-ico">◻</div>
-      <h3>Physical solocards</h3>
-      <p>Rounded square cards. Your photo, name, and credentials on front. QR code on the orange back. NFC chip embedded. Premium cardstock built to last.</p>
-    </div>
-    <div class="feat">
-      <div class="feat-ico">↗</div>
-      <h3>Always current</h3>
-      <p>Update your portfolio anytime. Every card you've ever handed out automatically shows your latest work. The card never goes stale.</p>
-    </div>
-    <div class="feat">
-      <div class="feat-ico">⊞</div>
-      <h3>Agent-ready</h3>
-      <p>Your portfolio is machine-readable via WebMCP. AI hiring agents, recruiters, and search tools can discover and query your professional data through structured tools.</p>
+<!-- HOW IT WORKS -->
+<section class="sect-dark">
+  <div class="sect" style="padding-top:5rem;padding-bottom:5rem">
+    <div class="sect-lab">How It Works</div>
+    <h2>Three steps from signup to someone holding your card</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>Build your solokit</h3>
+        <p>Add your projects, services, resume, and contact info. Your portfolio lives at yourname.solokit.app — mobile-first, fast, and agent-ready.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>Order your solocards</h3>
+        <p>Physical rounded-square cards with your photo on front and a QR code on back. NFC chip embedded. Thick stock, premium feel. Made to be kept.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>Hand them out</h3>
+        <p>Someone taps or scans your solocard — your full portfolio opens instantly. No app. Works on every device. Update anytime; every card stays current.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="example">
+<!-- LIVE EXAMPLE -->
+<section class="live-example">
   <div class="sect-lab">See It Live</div>
   <h2>Kohler Wood built his solokit in a day</h2>
   <p>Mechanical engineer. Colorado School of Mines. Eight portfolio projects, three classical piano performances, and a full resume — all in one place.</p>
-  <a href="https://kohler.solokit.app" class="btn btn-s" target="_blank">View Kohler's solokit →</a>
+  <a href="https://kohler.solokit.app" class="btn btn-outline" target="_blank">View Kohler's solokit →</a>
 </section>
 
-<section class="cta-sect" id="join">
+<!-- WAITLIST CTA -->
+<section class="cta-section" id="join">
   <div class="sect-lab">Get Started</div>
   <h2>Build yours. Order cards. Hand them out.</h2>
-  <p>Join engineers, designers, photographers, and solopreneurs who've replaced the paper business card with something that actually works.</p>
-  <form id="waitlist-form" style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;max-width:460px;margin:0 auto">
-    <input type="email" id="email-input" placeholder="your@email.com" required style="flex:1;min-width:200px;padding:0.875rem 1.25rem;background:var(--navy);border:1px solid rgba(255,255,255,0.1);border-radius:12px;color:var(--w);font-family:inherit;font-size:0.9375rem;outline:none;transition:border-color 0.2s" onfocus="this.style.borderColor='rgba(245,146,47,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
-    <button type="submit" class="btn btn-p" style="white-space:nowrap">Join Waitlist</button>
+  <p>Join engineers, designers, photographers, and solopreneurs who've replaced the paper business card.</p>
+  <form id="waitlist-form" class="wl-form">
+    <input type="email" id="email-input" class="wl-input" placeholder="your@email.com" required>
+    <button type="submit" class="btn btn-p">Join Waitlist</button>
   </form>
-  <p id="form-msg" style="margin-top:1rem;font-size:0.8125rem;color:var(--org);display:none"></p>
+  <p id="form-msg"></p>
 </section>
 
 <footer>
@@ -220,10 +192,9 @@ footer a:hover{color:var(--org)}
 <script>
 document.getElementById('waitlist-form').addEventListener('submit', function(e) {
   e.preventDefault();
-  const email = document.getElementById('email-input').value;
-  const msg = document.getElementById('form-msg');
-  // Store in localStorage for now — will connect to Supabase
-  const waitlist = JSON.parse(localStorage.getItem('solokit-waitlist') || '[]');
+  var email = document.getElementById('email-input').value;
+  var msg = document.getElementById('form-msg');
+  var waitlist = JSON.parse(localStorage.getItem('solokit-waitlist') || '[]');
   if (waitlist.includes(email)) {
     msg.textContent = "You're already on the list. We'll be in touch.";
   } else {
