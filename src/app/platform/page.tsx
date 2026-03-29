@@ -16,5 +16,5 @@ export const metadata: Metadata = {
 };
 
 export default function PlatformHome() {
-  return <HomePage />;
+  return <HomePage variant="platform" />;
 }

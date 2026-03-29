@@ -16,5 +16,5 @@ export const metadata: Metadata = {
 };
 
 export default function ProductHome() {
-  return <HomePage />;
+  return <HomePage variant="product" />;
 }
