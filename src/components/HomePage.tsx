@@ -2,7 +2,7 @@
 
 import { SoloKitIcon } from '@/components/SoloKitIcon';
 import { WaitlistForm } from '@/components/WaitlistForm';
-import { ArrowRight, ArrowDown } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const DEMO = {
   portrait: '/demo/opt/walker.webp',
@@ -132,26 +132,6 @@ export function HomePage({ variant }: HomePageProps) {
         </div>
       </section>
 
-      {/* ═══════ LIVE PROOF ═══════ */}
-      <section className="bg-white py-20 lg:py-28 px-6 lg:px-16 text-center">
-        <div className="max-w-2xl mx-auto">
-          <p className="text-xs font-bold tracking-[0.25em] uppercase text-[#008f25] mb-4">Live Now</p>
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-3">Kohler Wood built his in a day</h2>
-          <p className="text-neutral-500 leading-relaxed mb-8">
-            Mechanical engineer. Colorado School of Mines. Eight projects, three classical piano performances, full resume.
-          </p>
-          <a
-            href="https://kohler.solokit.app"
-            target="_blank"
-            rel="noopener"
-            className="inline-flex items-center gap-3 px-7 py-3.5 bg-[#0A1C3E] text-white text-xs font-bold tracking-widest uppercase rounded-xl hover:bg-[#12264a] transition-colors shadow-lg"
-          >
-            View kohler.solokit.app
-            <ArrowRight size={14} />
-          </a>
-        </div>
-      </section>
-
       {/* ═══════ WAITLIST CTA ═══════ */}
       <section className="bg-[#0A1C3E] py-20 lg:py-28 px-6 lg:px-16 text-center" id="join">
         <div className="max-w-lg mx-auto">
@@ -179,7 +159,6 @@ export function HomePage({ variant }: HomePageProps) {
           <div>
             <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-4">Links</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="https://kohler.solokit.app" target="_blank" rel="noopener" className="hover:text-[#F47920] transition-colors">Live Example</a></li>
               <li><a href="#how" className="hover:text-[#F47920] transition-colors">How It Works</a></li>
               <li><a href="#join" className="hover:text-[#F47920] transition-colors">Join Waitlist</a></li>
             </ul>
