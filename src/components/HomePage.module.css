@@ -432,3 +432,13 @@
   .bentoTile { aspect-ratio: 1; }
   .bentoPersona { grid-column: span 1; }
 }
+
+/* Keyframes must live in the same CSS module to share scope */
+@keyframes heroLine {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
