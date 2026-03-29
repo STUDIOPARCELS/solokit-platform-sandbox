@@ -20,7 +20,7 @@ export function HomePage({ variant }: HomePageProps) {
   return (
     <div className="min-h-screen w-full bg-white font-sans">
 
-      {/* ═══════ HERO — WHITE, KOHLER STYLE ═══════ */}
+      {/* ═══════ HERO — WHITE, TILE LAYOUT ═══════ */}
       <section className="min-h-screen w-full bg-white flex flex-col items-center pt-8 pb-12 lg:pt-20 lg:pb-24 px-6 lg:px-16">
         <div className="w-full max-w-[96rem] flex flex-col mt-0">
 
@@ -40,7 +40,7 @@ export function HomePage({ variant }: HomePageProps) {
             </p>
           </div>
 
-          {/* Three tiles — identical to Kohler's ProfilePage */}
+          {/* Three demo tiles */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full">
             {[
               { img: DEMO.portrait, label: 'ABOUT' },
