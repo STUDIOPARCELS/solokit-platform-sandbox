@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import styles from './WaitlistForm.module.css';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://aawnkxnnrymqbysgimqj.supabase.co';
 const SUPABASE_ANON = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
@@ -58,30 +57,30 @@ export function WaitlistForm() {
   };
 
   return (
-    <>
-      <div className={styles.form}>
+    <div className="flex flex-col items-center gap-3 w-full max-w-md mx-auto">
+      <div className="flex gap-3 w-full">
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && submit()}
-          className={styles.input}
+          className="flex-1 px-4 py-3 bg-neutral-100 border border-neutral-200 rounded-xl text-sm outline-none focus:border-neutral-400 transition-colors"
           placeholder="your@email.com"
           autoComplete="email"
         />
         <button
           onClick={submit}
           disabled={loading}
-          className={`${styles.btn} ${loading ? styles.loading : ''}`}
+          className="px-6 py-3 bg-neutral-900 text-white text-xs font-medium tracking-widest uppercase rounded-xl hover:bg-neutral-800 transition-colors disabled:opacity-50"
         >
-          {loading ? 'Joining…' : 'Join Waitlist'}
+          {loading ? 'Joining…' : 'Join'}
         </button>
       </div>
       {msg && (
-        <p className={`${styles.msg} ${msgType === 'error' ? styles.error : ''}`}>
+        <p className={`text-xs tracking-wide ${msgType === 'error' ? 'text-red-500' : 'text-neutral-500'}`}>
           {msg}
         </p>
       )}
-    </>
+    </div>
   );
 }

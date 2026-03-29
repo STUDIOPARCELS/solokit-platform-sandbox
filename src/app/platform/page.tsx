@@ -1,27 +1,20 @@
 import type { Metadata } from 'next';
-import { BRAND } from '@/config/brandContext';
 import { HomePage } from '@/components/HomePage';
 
-const b = BRAND.platform;
-
 export const metadata: Metadata = {
-  title: b.metaTitle,
-  description: b.metaDescription,
+  title: 'solokit — Your work. One link. One card.',
+  description: 'Build your portfolio at yourname.solokit.app. Order physical solocards with NFC + QR. Your professional story, always current.',
   openGraph: {
-    title: b.metaTitle,
-    description: b.metaDescription,
-    url: b.canonicalBase,
-    siteName: b.ogSiteName,
+    title: 'solokit — Your work. One link. One card.',
+    description: 'Build your portfolio. Order physical solocards with NFC + QR.',
+    url: 'https://solokit.app',
+    siteName: 'solokit',
     type: 'website',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: b.metaTitle,
-    description: b.metaDescription,
-  },
-  alternates: { canonical: b.canonicalBase },
+  twitter: { card: 'summary_large_image', title: 'solokit — Your work. One link. One card.' },
+  alternates: { canonical: 'https://solokit.app' },
 };
 
 export default function PlatformHome() {
-  return <HomePage navLabel={b.navLabel} />;
+  return <HomePage />;
 }
