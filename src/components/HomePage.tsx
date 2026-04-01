@@ -32,9 +32,17 @@ export function HomePage({ variant }: HomePageProps) {
             </a>
           </div>
 
-          {/* Name + tagline — right-aligned above tiles */}
+          {/* SEO H1 — keyword aligned, visible */}
+          <h1 className="text-3xl lg:text-4xl font-bold tracking-tight text-neutral-900 mb-2 animate-in fade-in duration-500">
+            AI-friendly portfolio platform
+          </h1>
+          <p className="text-base text-neutral-500 leading-relaxed mb-10 max-w-xl animate-in fade-in duration-600">
+            Create an indexable personal or brand site that search engines rank and AI systems read. Publish portfolios, galleries, events, and invitations with physical NFC + QR solocards.
+          </p>
+
+          {/* Demo persona label */}
           <div className="flex flex-col items-end text-neutral-900 mb-6 animate-in fade-in duration-500">
-            <h1 className="text-3xl lg:text-4xl font-semibold tracking-wide uppercase">Your Name</h1>
+            <p className="text-2xl lg:text-3xl font-semibold tracking-wide uppercase">Your Name</p>
             <p className="text-sm lg:text-base font-semibold tracking-widest uppercase text-neutral-600 mt-1">
               DOG WALKING & CUSTOM KNITS
             </p>

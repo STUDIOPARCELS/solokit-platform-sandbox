@@ -1,0 +1,51 @@
+# solokit
+
+> AI-friendly portfolio, gallery, event, and invitation platform. Create an indexable personal or brand site that search engines rank and AI systems can read. Publish portfolios, galleries, events, and invitations in real time with physical NFC + QR solocards.
+
+## Product
+
+solokit is a platform for building persistent digital presences — called autonomous residences — for people, brands, companies, events, and properties. Every solokit page is server-rendered with complete HTML, unique metadata, JSON-LD structured data, and machine-readable entity information. AI systems can access portfolio data through WebMCP (Model Context Protocol) integration.
+
+solocard is a physical rounded-square card with NFC chip and QR code that opens a solokit site instantly. Tap against any phone or scan the code. The card is permanent — the destination updates in real time.
+
+## Pages
+
+- [Homepage](https://solokit.app)
+- [Autonomous Residence](https://solokit.app/autonomous-residence)
+- [Autonomous Corporate Residence](https://solokit.app/autonomous-corporate-residence)
+- [What is an AI-Readable Portfolio](https://solokit.app/what-is-an-ai-readable-portfolio)
+- [Digital-Physical Presence](https://solokit.app/digital-physical-presence)
+- [For Creators](https://solokit.app/for-creators)
+- [For Brands](https://solokit.app/for-brands)
+- [For Galleries](https://solokit.app/for-galleries)
+- [For Events](https://solokit.app/for-events)
+- [For Properties & Venues](https://solokit.app/for-properties)
+- [For Solopreneurs](https://solokit.app/for-solopreneurs)
+- [For Socialites](https://solokit.app/for-socialites)
+- [For Influencers](https://solokit.app/for-influencers)
+- [For Dog Walkers](https://solokit.app/for-dog-walkers)
+- [For Custom Crafters](https://solokit.app/for-custom-crafters)
+- [Showcase](https://solokit.app/showcase)
+
+## Documentation
+
+- [Schema & Structured Data](https://solokit.app/docs/schema)
+- [MCP Integration](https://solokit.app/docs/mcp)
+- [AI Readability](https://solokit.app/docs/ai-readability)
+
+## Public Data Endpoints
+
+- [Profile JSON](https://solokit.app/api/public/profiles/)
+- [Event JSON](https://solokit.app/api/public/events/)
+- [Search Index](https://solokit.app/api/public/search-index.json)
+
+## Live Profiles
+
+- [kohler.solokit.app](https://kohler.solokit.app) — Kohler Wood, Mechanical Engineer
+
+## Key Concepts
+
+- **Autonomous Residence**: A persistent digital presence for a person, brand, company, event, or property that search engines can index, AI systems can read, and real-world audiences can reach instantly through a card, QR code, link, or invitation.
+- **solocard**: Physical NFC + QR card that opens a solokit site. Permanent hardware, updatable destination.
+- **WebMCP**: Model Context Protocol integration enabling AI agents to search, retrieve, and interact with portfolio data programmatically.
+- **AI Readability**: Server-rendered HTML with JSON-LD structured data, visible text summaries, and machine-readable entity metadata on every page.

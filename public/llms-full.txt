@@ -1,0 +1,160 @@
+# solokit — Full Documentation for AI Systems
+
+> AI-friendly portfolio, gallery, event, and invitation platform. Create an indexable personal or brand site that search engines rank and AI systems can read.
+
+## Product Overview
+
+solokit is a platform for building autonomous residences — persistent, indexable digital presences for people, brands, companies, events, and properties. Every public solokit page is:
+
+1. Server-side rendered with complete HTML
+2. Enriched with JSON-LD structured data matching visible content
+3. Accessible through WebMCP (Model Context Protocol) for AI agent interaction
+4. Linked to physical NFC + QR solocards for real-world distribution
+
+The platform serves three domains:
+
+| Domain | Purpose |
+|--------|---------|
+| solokit.app | Platform marketing, onboarding, admin |
+| solocard.app | Product marketing, card ordering, tap/scan entry |
+| *.solokit.app | Public destination sites (portfolios, galleries, events) |
+
+## Autonomous Residence
+
+An autonomous residence is a persistent digital presence for a person, brand, company, event, or property that:
+
+- Search engines can index and rank
+- AI systems can read through structured data and MCP
+- Real-world audiences can reach instantly through a card, QR code, link, or invitation
+- Updates in real time without changing any distributed links or cards
+
+This is the category solokit defines and owns.
+
+## solocard — Physical Distribution Layer
+
+A solocard is a rounded-square physical card with:
+- NFC chip (tap against any phone)
+- QR code (scan with any camera)
+- Custom photo on front, QR on back
+- Premium card stock, made to be kept
+
+The card resolves through solocard.app/open/{slug}, which logs the interaction and redirects to the destination solokit site. The card is permanent hardware — the destination is updatable software.
+
+## Schema Strategy
+
+solokit uses comprehensive JSON-LD structured data on every page:
+
+### Homepage
+- Organization (solokit as company)
+- WebSite (with SearchAction)
+- SoftwareApplication (platform description, features, pricing)
+
+### Profile Pages (*.solokit.app)
+- ProfilePage
+- Person or Organization (entity type)
+- BreadcrumbList
+
+### Event Pages
+- Event
+- Offer
+- Place
+- Organizer
+
+### Gallery Pages
+- CollectionPage
+- CreativeWork / VisualArtwork / ImageObject per artwork
+
+### All Pages
+- BreadcrumbList navigation
+- FAQPage where genuinely useful
+
+All structured data matches visible text content exactly.
+
+## Entity Metadata per Page
+
+Every solokit page includes:
+- Unique <title> tag
+- Unique meta description
+- Canonical URL
+- H1 heading
+- Entity summary in visible text
+- JSON-LD matching visible content
+- Internal links to related pages
+- OpenGraph and Twitter Card metadata
+
+## MCP Integration
+
+solokit exposes a read-only MCP server using Streamable HTTP transport.
+
+### Resources
+- profile — person or organization data
+- event — event details, dates, location
+- gallery — collection of artworks or images
+- invitation — event invitation with RSVP
+- venue — property or location data
+- availability — booking or contact availability
+
+### Tools
+- search_profiles — find profiles by keyword, location, category
+- search_events — find events by date, location, type
+- get_profile — retrieve full profile data by slug
+- get_event — retrieve full event data by slug
+- get_gallery — retrieve gallery with artwork metadata
+- get_rsvp_link — get RSVP URL for an event
+- get_booking_link — get booking URL for a service
+
+### Prompts
+- recommend a creator page
+- recommend an event page
+- summarize a portfolio
+- find a gallery with booking info
+
+## Public JSON Endpoints
+
+- GET /api/public/profiles/{slug}.json — profile entity data
+- GET /api/public/events/{slug}.json — event entity data
+- GET /api/public/galleries/{slug}.json — gallery and artwork data
+- GET /api/public/search-index.json — all public entities for search
+
+## AI Crawler Policy
+
+solokit allows AI search and retrieval bots on all public pages:
+- OAI-SearchBot, ChatGPT-User (OpenAI search)
+- Claude-SearchBot, Claude-User (Anthropic search)
+- PerplexityBot, Perplexity-User (Perplexity search)
+
+Training-data crawlers are blocked:
+- GPTBot, ClaudeBot, CCBot, Google-Extended
+
+## Use Cases
+
+### For Creators
+Portfolio, resume, projects, services, contact. Subdomain at yourname.solokit.app. Physical solocards for networking.
+
+### For Brands
+Corporate autonomous residence with structured data. Team profiles, service pages, event hosting.
+
+### For Galleries
+Exhibition pages with artwork metadata (title, artist, medium, year, dimensions, availability). AI-readable collection data.
+
+### For Events
+Event pages with date, location, RSVP, guest lists, invitations. Physical solocards as VIP passes or invitations.
+
+### For Properties & Venues
+Property listings with location, amenities, availability, booking. Persistent digital presence for hospitality.
+
+## Live Profiles
+
+- kohler.solokit.app — Kohler Wood, Mechanical Engineer (BSME, Colorado School of Mines, EIT)
+
+## Company
+
+solokit is built by Lisa Wood Studio, Sun Valley, Idaho.
+Founder: Lisa Wood — fine art photographer, visual language strategist, software developer.
+
+## Links
+
+- Homepage: https://solokit.app
+- Product: https://solocard.app
+- Sitemap: https://solokit.app/sitemap.xml
+- LLMs.txt: https://solokit.app/llms.txt
