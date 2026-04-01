@@ -64,7 +64,7 @@ export function resolveDomainRole(hostname: string): { role: DomainRole; slug?: 
   // Wildcard match: *.solokit.app
   if (host.endsWith('.solokit.app')) {
     const slug = host.replace('.solokit.app', '');
-    if (slug && slug !== 'www') {
+    if (slug && slug !== 'www' && slug !== 'sandbox') {
       return { role: 'kit', slug };
     }
     return { role: 'platform' };
