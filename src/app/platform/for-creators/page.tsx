@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import { PageShell } from '@/components/PageShell';
+import { FAQSection } from '@/components/FAQSection';
+import { generateFAQJsonLd } from '@/lib/faq';
+import type { FAQItem } from '@/lib/faq';
 
 export const metadata: Metadata = {
   title: 'solokit for Creators | AI-readable portfolio platform for artists, engineers, and designers',
@@ -31,10 +34,21 @@ const SECTIONS = [
   { title: 'WebMCP', desc: 'AI agents can search your portfolio, retrieve project details, and generate contact links through structured MCP tools. Your work becomes discoverable inside AI workflows.' },
 ];
 
+const FAQ_ITEMS: FAQItem[] = [
+  { question: 'How much does solokit cost?', answer: 'solokit is free during the beta period. Join the waitlist at solokit.app to get early access.' },
+  { question: 'What is a solocard?', answer: 'A physical rounded-square card with an NFC chip and QR code on premium card stock. Your photo on front, QR on back. Tap or scan opens your full solokit portfolio.' },
+  { question: 'Can I use my own domain?', answer: 'Every solokit starts on yourname.solokit.app. Custom domains are planned for the Pro tier.' },
+  { question: 'How is solokit different from a link-in-bio page?', answer: 'solokit is a full portfolio platform with structured data, AI readability, and physical cards. A link-in-bio page is a list of links. solokit pages are indexable by search engines, readable by AI systems, and citable by AI Overviews.' },
+  { question: 'What types of creators use solokit?', answer: 'Engineers, designers, photographers, musicians, writers, developers, freelancers, and solopreneurs — anyone who needs a persistent portfolio with structured data and physical distribution.' },
+];
+
+const faqJsonLd = generateFAQJsonLd(FAQ_ITEMS);
+
 export default function ForCreatorsPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <PageShell breadcrumb={[{ label: 'For Creators', href: '/for-creators' }]}>
 
         <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6 max-w-3xl">
@@ -62,6 +76,8 @@ export default function ForCreatorsPage() {
             See a live example: <a href="https://kohler.solokit.app" className="text-[#F47920] hover:underline">kohler.solokit.app</a> — Kohler Wood, Mechanical Engineer.
           </p>
         </div>
+
+        <FAQSection items={FAQ_ITEMS} />
 
       </PageShell>
     </>

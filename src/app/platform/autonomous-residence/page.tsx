@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import { PageShell } from '@/components/PageShell';
+import { FAQSection } from '@/components/FAQSection';
+import { generateFAQJsonLd } from '@/lib/faq';
+import type { FAQItem } from '@/lib/faq';
 
 export const metadata: Metadata = {
   title: 'Autonomous Residence | AI-readable digital presence by Solokit',
@@ -31,10 +34,22 @@ const jsonLd = {
   },
 };
 
+const FAQ_ITEMS: FAQItem[] = [
+  { question: 'What is an autonomous residence?', answer: 'A persistent digital presence for a person, brand, company, event, or property that search engines can index, AI systems can read, and real-world audiences can reach instantly through a card, QR code, link, or invitation.' },
+  { question: 'How is an autonomous residence different from a website?', answer: 'An autonomous residence has three layers: indexable HTML pages for search engines, machine-readable structured data and public JSON endpoints for AI systems, and a physical distribution layer through NFC + QR solocards. A traditional website only has the first layer.' },
+  { question: 'What makes a solokit page AI-readable?', answer: 'Every solokit page is server-rendered with JSON-LD structured data that matches visible content, public JSON endpoints for programmatic access, llms.txt for AI system ingestion, and an MCP server for agent-native tool calls.' },
+  { question: 'Who can build an autonomous residence?', answer: 'Creators, brands, galleries, events, properties, solopreneurs, influencers, and anyone who needs a persistent, indexable digital presence with physical distribution through solocards.' },
+  { question: 'What is a solocard?', answer: 'A physical rounded-square card with an NFC chip and QR code. Tap it against any phone or scan the code — your full solokit site opens instantly. The card is permanent, the destination updates in real time.' },
+  { question: 'What is WebMCP?', answer: 'The Model Context Protocol (MCP) is an open standard for connecting AI applications to tools and data. solokit exposes a read-only MCP server so AI agents can search profiles, retrieve events, and generate booking links through structured tool calls.' },
+];
+
+const faqJsonLd = generateFAQJsonLd(FAQ_ITEMS);
+
 export default function AutonomousResidencePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <PageShell breadcrumb={[{ label: 'Autonomous Residence', href: '/autonomous-residence' }]}>
 
         <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6 max-w-3xl">
@@ -104,6 +119,8 @@ export default function AutonomousResidencePage() {
             solokit is the platform that builds, hosts, and distributes autonomous residences. Every solokit page is a living entity in the knowledge graph — structured, discoverable, and always current.
           </p>
         </div>
+
+        <FAQSection items={FAQ_ITEMS} />
 
       </PageShell>
     </>

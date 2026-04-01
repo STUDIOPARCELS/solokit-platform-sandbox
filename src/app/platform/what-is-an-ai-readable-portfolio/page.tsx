@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import { PageShell } from '@/components/PageShell';
+import { FAQSection } from '@/components/FAQSection';
+import { generateFAQJsonLd } from '@/lib/faq';
+import type { FAQItem } from '@/lib/faq';
 
 export const metadata: Metadata = {
   title: 'What Is an AI-Readable Portfolio | Structured data portfolios by Solokit',
@@ -23,10 +26,20 @@ const jsonLd = {
   isPartOf: { '@type': 'WebSite', name: 'solokit', url: 'https://solokit.app' },
 };
 
+const FAQ_ITEMS: FAQItem[] = [
+  { question: 'What makes a portfolio AI-readable?', answer: 'Server-rendered HTML with JSON-LD structured data, unique page metadata, visible text summaries for every entity, internal link architecture, and machine-readable endpoints (public JSON and MCP).' },
+  { question: 'Why does AI readability matter for portfolios?', answer: 'AI systems like Google AI Overviews, ChatGPT search, Claude search, and Perplexity use structured web content to generate citations and recommendations. An AI-readable portfolio is eligible for these citations.' },
+  { question: 'Does AI readability replace SEO?', answer: 'AI readability builds on SEO fundamentals. Google states that AI Overviews and AI Mode use the same basic SEO work: crawlability, indexation, snippets, internal links, structured data, and visible text.' },
+  { question: 'How does solokit make portfolios AI-readable?', answer: 'Every solokit page is server-rendered with JSON-LD matching visible content. The CMS requires entity-specific metadata. WebMCP integration adds agent-native access through structured tool calls.' },
+];
+
+const faqJsonLd = generateFAQJsonLd(FAQ_ITEMS);
+
 export default function AIReadablePortfolioPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <PageShell breadcrumb={[{ label: 'AI-Readable Portfolio', href: '/what-is-an-ai-readable-portfolio' }]}>
 
         <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6 max-w-3xl">
@@ -69,6 +82,8 @@ export default function AIReadablePortfolioPage() {
             </p>
           </div>
         </div>
+
+        <FAQSection items={FAQ_ITEMS} />
 
       </PageShell>
     </>

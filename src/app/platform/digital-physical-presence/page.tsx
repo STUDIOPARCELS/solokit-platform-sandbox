@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import { PageShell } from '@/components/PageShell';
+import { FAQSection } from '@/components/FAQSection';
+import { generateFAQJsonLd } from '@/lib/faq';
+import type { FAQItem } from '@/lib/faq';
 
 export const metadata: Metadata = {
   title: 'Digital-Physical Presence | Bridge the physical and digital with Solokit',
@@ -22,10 +25,20 @@ const jsonLd = {
   isPartOf: { '@type': 'WebSite', name: 'solokit', url: 'https://solokit.app' },
 };
 
+const FAQ_ITEMS: FAQItem[] = [
+  { question: 'How does a solocard work?', answer: 'A solocard has an NFC chip and QR code. Hold it against any phone for NFC tap, or scan the QR code with any camera. Both open your full solokit site instantly — no app download required.' },
+  { question: 'Can I update my site after giving out cards?', answer: 'Yes. The solocard resolves through a smart redirect. Change your site content, add projects, update your resume — every card you have ever given out opens the current version.' },
+  { question: 'What analytics do solocards provide?', answer: 'Every tap and scan is logged with timestamp, device type, referrer, and approximate location. IP addresses are hashed for privacy — no raw IPs are stored.' },
+  { question: 'What is the solocard made of?', answer: 'Premium card stock in a rounded-square format. Your photo on front, QR code on back, NFC chip embedded. Designed to be kept in a wallet or handed to the right person.' },
+];
+
+const faqJsonLd = generateFAQJsonLd(FAQ_ITEMS);
+
 export default function DigitalPhysicalPresencePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <PageShell breadcrumb={[{ label: 'Digital-Physical Presence', href: '/digital-physical-presence' }]}>
 
         <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6 max-w-3xl">
@@ -57,6 +70,8 @@ export default function DigitalPhysicalPresencePage() {
             This is what makes an autonomous residence different from a website. It has a physical distribution layer. The solocard is not a business card — it is a key that opens your full digital presence.
           </p>
         </div>
+
+        <FAQSection items={FAQ_ITEMS} />
 
       </PageShell>
     </>
