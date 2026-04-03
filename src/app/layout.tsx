@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'solokit',
-  description: 'Your work. One link. One card.',
+  title: 'solokit | AI-readable personal sites, portfolios, event pages, and digital cards',
+  description: 'Build an AI-readable personal site on your own solokit subdomain for portfolios, galleries, events, invitations, and QR/NFC sharing. Book, buy, view, and RSVP from one scan.',
   verification: {
     google: 'KXNpwStj4-cLYRof2xX6GUIMhe7sJXL2M0GQ4Xd9eGA',
     other: {

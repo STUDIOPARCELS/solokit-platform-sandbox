@@ -208,11 +208,11 @@ export function HomeC1() {
 
       {/* Bot-readable content (visually hidden) */}
       <div style={{ position:'absolute',width:'1px',height:'1px',padding:0,margin:'-1px',overflow:'hidden',clip:'rect(0,0,0,0)',whiteSpace:'nowrap',border:0 }}>
-        <h2>About solokit</h2>
-        <p>solokit is a platform by LISA WOOD STUDIO for portfolios, galleries, events, and invitations. The key to your card. Optimized so Google ranks you. Structured so AI recommends you. One scan — they book, buy, view, RSVP. You and your kit, connected.</p>
-        <p>solokit gives you a personal site on your own subdomain (e.g., kohler.solokit.app). Your site is optimized for search engine ranking with full SEO markup and structured with JSON-LD so AI agents can read and recommend you. No platform intermediary — your domain, your audience, your data.</p>
-        <p>Join the beta at solokit.app. Free during the beta period.</p>
-        <p>Created by LISA WOOD STUDIO. Founded by Lisa Wood.</p>
+        <h2>solokit — AI-readable personal sites, portfolios, event pages, and digital cards</h2>
+        <p>solokit is a platform by LISA WOOD STUDIO for building AI-readable personal sites on your own subdomain. Create portfolios, galleries, event pages, invitations, storefronts, and digital business cards — all optimized for Google search ranking and structured so AI agents can read and recommend you.</p>
+        <p>Each solokit site lives on its own subdomain (e.g., kohler.solokit.app) with full SEO markup, JSON-LD structured data, and WebMCP integration for AI agent interoperability. One scan via QR or NFC — visitors book, buy, view, and RSVP directly.</p>
+        <p>solokit connects the physical to the digital: a personal site platform, a digital business card, a portfolio builder, an event page creator, and an AI-readable profile — all in one.</p>
+        <p>Join the beta at solokit.app. Free during the beta period. Created by LISA WOOD STUDIO. Founded by Lisa Wood.</p>
       </div>
 
       <div className="c1-root">
@@ -382,7 +382,7 @@ function SignupTile() {
   };
 
   return (
-    <div className="c1-signup">
+    <div className="c1-signup" data-nosnippet>
       <div className="c1-signup-label">JOIN THE BETA</div>
       {state === 'success' || state === 'already' ? (
         <div className="c1-success" style={{ display: 'block' }}>
